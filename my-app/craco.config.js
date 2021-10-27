@@ -1,21 +1,22 @@
 const CracoLessPlugin = require('craco-less');
 const CracoAntDesignPlugin = require('craco-antd')
 const path = require('path')
-const pathResolve = pathUrl => path.join(__dirname,pathUrl)
+const pathResolve = pathUrl => path.join(__dirname, pathUrl)
 
 module.exports = {
-  webpack:{
-    alias:{
-     "@":pathResolve("src"),
-     "@components":pathResolve('scr/components')
+  webpack: {
+    alias: {
+      "@": pathResolve("src"),
+      "@components": pathResolve('scr/components')
     }
   },
-  plugins:[
+  plugins: [
     {
-      plugin:CracoLessPlugin,
-      options:{
-        lessLoaderOptions:{
-          lessOptions:{
+      plugin: CracoLessPlugin,
+      options: {
+        lessLoaderOptions: {
+          lessOptions: {
+            modifyVars: { '@primary-color': '#1DA57A' },
             javascriptEnabled: true,
           }
         }
@@ -30,10 +31,10 @@ module.exports = {
       },
     },
   ],
-  babel:{
-    plugins:[
+  babel: {
+    plugins: [
       // ['import',{libraryName:'antd', "libraryDirectory": "es",style:true}]
-      ["@babel/plugin-proposal-decorators",{legacy:true}]
+      ["@babel/plugin-proposal-decorators", { legacy: true }]
     ]
   }
 }

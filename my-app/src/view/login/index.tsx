@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Form, Input, Button } from 'antd'
+import { Form, Input, Button, Card } from 'antd'
 // import useFetch from '../../hooks/UseFetch'
 // import {apiLogin} from '../../api/index';
 
@@ -45,32 +45,38 @@ const Login: FC = () => {
   }
 
   return (
-    <Form
-      {...layout}
-      name="basic"
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-    >
-      <Form.Item
-        label='用户名'
-        name='username'
-        rules={[{ required: true, message: '请输入用户名' }]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        label='密码'
-        name='password'
-        rules={[{ required: true, message: '请输入密码' }]}
-      >
-        <Input.Password />
-      </Form.Item>
-      <Form.Item {...tailLayout}>
-        <Button type="primary" htmlType="submit">
-          登录
-        </Button>
-      </Form.Item>
-    </Form>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <Card style={{ width: 400 }}>
+        <Form
+          labelCol={{ span: 6 }}
+          name="basic"
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+        >
+          <Form.Item
+            label='用户名'
+            name='username'
+            rules={[{ required: true, message: '请输入用户名' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label='密码'
+            name='password'
+            rules={[{ required: true, message: '请输入密码' }]}
+          >
+            <Input.Password />
+          </Form.Item>
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              登录
+            </Button>
+          </Form.Item>
+        </Form>
+      </Card>
+
+    </div>
+
   )
 }
 
